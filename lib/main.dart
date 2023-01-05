@@ -3,14 +3,18 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:fuel_app/DashBoardPage/Body.dart';
 import 'package:fuel_app/DashBoardPage/productScreen.dart';
+import 'package:fuel_app/Routings/routes.dart';
 import 'package:fuel_app/SplashScreen/splash_screen.dart';
 import 'package:fuel_app/screans/login.dart';
 import 'package:fuel_app/screans/selectNearestShed.dart';
 import 'package:fuel_app/screans/selectVehicle.dart';
+import 'package:fuel_app/screans/signup.dart';
 import 'package:fuel_app/station_owner_screen/fuelArrivalUpdateScreen.dart';
 import 'package:fuel_app/station_owner_screen/fuelFinishUpdateScreen.dart';
 import 'package:fuel_app/userOnQueue/queueUpdateScreen.dart';
 import 'package:fuel_app/widgets/navigationBar.dart';
+
+import 'SplashScreen/components/body.dart';
 //import 'DashBoardPage/DashBoardPage.dart';
 
 void main() {
@@ -23,18 +27,24 @@ class FuelApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Poppins'),
-      title: 'Fuel App',
-      // home: productScreen(),
-      // home: SelectVehicle(),
-      //home: FuelArrivalUpdate(),
-      //home: FuelFinishUpdate(),
-      //home: QueueUpdate(),
-      //home: SplashScreen(),
-      home: NavBar(),
-      //home: SearchNearestShed(),
-      //home: const LogInScreen(),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Poppins'),
+        title: 'Fuel App',
+        // home: productScreen(),
+        home: SignUpScreen(),
+        // home: SelectVehicle(),
+        // home: FuelArrivalUpdate(),
+        // home: FuelFinishUpdate(),
+        //home: QueueUpdate(),
+        // home: SplashBody(),
+        // home: NavBar(),
+        // home: SearchNearestShed(),
+        //home: const LogInScreen(),
+        // home: Body(),
+        routes: {
+          '/Dashbody': (context) => Body(),
+          '/selectNearestShed': (context) => SearchNearestShed(),
+          '/loginPage': (context) => LogInScreen(),
+        });
   }
 }
