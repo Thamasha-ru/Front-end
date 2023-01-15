@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fuel_app/OnbordingScreen/components/body.dart';
-import 'package:fuel_app/screans/landing/util_functions.dart';
+import 'package:fuel_app/screens/landing/util_functions.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class _LandingPageState extends State<LandingPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('images/splash.png'),
+            Image.asset('images/s.png'),
             const SizedBox(height: 8.0),
             const Text(
               "No waiting for fuel",
