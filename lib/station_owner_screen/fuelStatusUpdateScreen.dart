@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fuel_app/theme.dart';
-import 'package:fuel_app/widgets/primary_button.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:http/http.dart' as http;
+
+
+import 'build_button.dart';
+
+var now;
+
 
 class FuelStatusUpdate extends StatefulWidget {
   const FuelStatusUpdate({super.key});
@@ -101,43 +106,6 @@ class _FuelStatusUpdateState extends State<FuelStatusUpdate> {
         ),
         backgroundColor: kPrimaryColor,
       ),
-      bottomNavigationBar: Container(
-        height: 70,
-        color: kPrimaryColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/dashBoard');
-              },
-              icon: Icon(Icons.home),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/viewQueue');
-              },
-              icon: Icon(Icons.car_crash_outlined),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/joinQueue');
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => Scan()));
-              },
-              icon: Icon(
-                Icons.queue,
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/fuelStateUpdate');
-              },
-              icon: Icon(Icons.update),
-            ),
-          ],
-        ),
-      ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -154,7 +122,11 @@ class _FuelStatusUpdateState extends State<FuelStatusUpdate> {
                 height: 20,
               ),
               ElevatedButton(
-                onPressed: updateArrivalTime,
+                // onPressed: updateArrivalTime,
+                onPressed: () {
+                  var now = DateTime.now();
+                  print(now);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: kPrimaryColor,
                   //primary: Colors.purple,
@@ -199,8 +171,8 @@ class _FuelStatusUpdateState extends State<FuelStatusUpdate> {
               ),
               ElevatedButton(
                 onPressed: () {
-              Navigator.pushNamed(context, '/dashBoard');
-              },
+                  Navigator.pushNamed(context, '/dashBoard');
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: kPrimaryColor,
                   //primary: Colors.purple,
@@ -231,32 +203,6 @@ class _FuelStatusUpdateState extends State<FuelStatusUpdate> {
       ),
     );
   }
-}
-
-//CUstom button
-Card buildButton({
-  required onTap,
-  required title,
-  required text,
-  required leadingIcon,
-}) {
-  return Card(
-    shape: const StadiumBorder(),
-    margin: const EdgeInsets.symmetric(
-      horizontal: 20,
-    ),
-    clipBehavior: Clip.antiAlias,
-    elevation: 1,
-    child: ListTile(
-      onTap: onTap,
-      leading: leadingIcon,
-      title: Text(title ?? ""),
-      subtitle: Text(text ?? ""),
-      trailing: const Icon(
-        Icons.keyboard_arrow_right_rounded,
-      ),
-    ),
-  );
 }
 
 // import 'dart:ui';
